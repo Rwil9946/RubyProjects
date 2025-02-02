@@ -1,0 +1,43 @@
+<%= form_with(model: post) do |form| %>
+  <% if post.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+        <% post.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :carrier, style: "display: block" %>
+    <%= form.text_field :carrier %>
+  </div>
+  
+  <div>
+    <%= form.label :state, style: "display: block" %>
+    <%= form.select :state, [['AL','al'],['AK','ak'],['AZ','az'],['AR','ar'],['CA','ca'],['CO','co'],['CT','ct'],['DE','de'],['FL','fl'],
+    ['GA','ga'],['HI','hi'],['ID','id'],['IL','il'],['IN','in'],['IA','ia'],['KS','ks'],['KY','ky'],['LA','la'],['ME','me'],['MD','md'],
+    ['MA','ma'],['MI','mi'],['MN','mn'],['MS','ms'],['MO','mo'],['MT','mt'],['NE','ne'],['NV','nv'],['NH','nh'],['NJ','nj'],['NM','nm'],
+    ['NY','ny'],['NC','nc'],['ND','nd'],['OH','oh'],['OK','ok'],['OR','or'],['PA','pa'],['RI','ri'],['SC','sc'],['SD','sd'],['TN','tn'],
+    ['TX','tx'],['UT','ut'],['VT','vt'],['VA','va'],['WA','wa'],['WV','wv'],['WI','wi'],['WY','wy']] %>
+  </div>
+
+  <div>
+    <%= form.label :description, style: "display: block" %>
+    <%= form.text_field :description %>
+  </div>
+
+
+  <div>
+    <%= form.label :phonenumber, style: "display: block" %>
+    <%= form.text_field :phonenumber %>
+  </div>
+  
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
